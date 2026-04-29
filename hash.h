@@ -5,7 +5,7 @@
 #include <sys/stat.h>
 #include "list.h"
 
-const unsigned int NUMBER_OF_FILES = 2;
+const unsigned int NUMBER_OF_FILES = 3;
 const unsigned int HASH_LIST_SIZE = 4001;
 
 struct hash_table_t{
@@ -27,7 +27,9 @@ enum errors{
     COMMAND_MAKING_ERROR = 9,
     FILE_STATISTICS_ERROR = 10,
     TEXT_READING_ERROR = 11,
-    HASH_TABLE_MAKING_ERROR = 12
+    HASH_TABLE_MAKING_ERROR = 12,
+    ERROR_WHILE_FINDING_WORDS = 13,
+    WORD_FOUNDING_ERROR = 14
 };
 
 int hash1(char* word);
@@ -38,11 +40,13 @@ int hash5(char* word);
 
 errors read_text(FILE* input_address, struct stat* statistics, char** buffer,
                  long unsigned int* buffer_len);
+
 errors make_hash_table(char* buffer, hash_table_t* hash_table,
                        long unsigned int buffer_len, FILE* html_dump_address);
-errors hash_table_add(hash_table_t* hash_table, char* word, FILE* html_dump_address)
-;
+errors hash_table_add(hash_table_t* hash_table, char* word, FILE* html_dump_address);
 
+errors find_words(hash_table_t* hash_table, char* buffer, unsigned long int buffer_len);
+errors find_word(hash_table_t* hash_table, char* word);
 
 errors hash_table_init(hash_table_t** hash_table, int (*hash)(char*),
                        unsigned int list_array_len);

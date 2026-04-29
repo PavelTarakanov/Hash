@@ -1,6 +1,9 @@
 #ifndef LIST_H
 #define LIST_H
 
+#include <cstdio>
+#include <sys/stat.h>
+
 const int LEFT_BIRD = 2147483647;
 const int START_LIST_SIZE = 10;
 const int MAX_COMMAND_SIZE = 1000;
