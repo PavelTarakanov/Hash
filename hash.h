@@ -11,7 +11,7 @@ const unsigned int HASH_LIST_SIZE = 4001;
 struct hash_table_t{
     unsigned int list_array_len;
     list_t* list_array;
-    int (*hash_func)(char*);
+    int (*hash_func)(word_t*);
 };
 
 enum errors{
@@ -32,23 +32,25 @@ enum errors{
     WORD_FOUNDING_ERROR = 14
 };
 
-int hash1(char* word);
-int hash2(char* word);
-int hash3(char* word);
-int hash4(char* word);
-int hash5(char* word);
+int hash1(word_t* word);
+int hash2(word_t* word);
+int hash3(word_t* word);
+int hash4(word_t* word);
+int hash5(word_t* word);
+int hash6(word_t* word);
+int hash6_optimised(word_t* word);
 
 errors read_text(FILE* input_address, struct stat* statistics, char** buffer,
                  long unsigned int* buffer_len);
 
 errors make_hash_table(char* buffer, hash_table_t* hash_table,
                        long unsigned int buffer_len, FILE* html_dump_address);
-errors hash_table_add(hash_table_t* hash_table, char* word, FILE* html_dump_address);
+errors hash_table_add(hash_table_t* hash_table, word_t* word, FILE* html_dump_address);
 
 errors find_words(hash_table_t* hash_table, char* buffer, unsigned long int buffer_len);
-errors find_word(hash_table_t* hash_table, char* word);
+errors find_word(hash_table_t* hash_table, word_t* word);
 
-errors hash_table_init(hash_table_t** hash_table, int (*hash)(char*),
+errors hash_table_init(hash_table_t** hash_table, int (*hash)(word_t*),
                        unsigned int list_array_len);
 void hash_table_destroy(hash_table_t* hash_table);
 

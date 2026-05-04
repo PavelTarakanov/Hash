@@ -24,7 +24,7 @@ int main(int argc, char* argv[])
     unsigned long int finding_buffer_len = 0;
     hash_table_t* hash_table = NULL;
 
-    if (hash_table_init(&hash_table, hash5, HASH_LIST_SIZE))
+    if (hash_table_init(&hash_table, hash6_optimised, HASH_LIST_SIZE))
         return HASH_TABLE_MAKING_ERROR;
 
     if (check_file_founded(argc, NUMBER_OF_FILES))
@@ -67,7 +67,7 @@ int main(int argc, char* argv[])
     return NO_ERRORS;
 }
 
-errors hash_table_init(hash_table_t** hash_table, int (*hash)(char*),
+errors hash_table_init(hash_table_t** hash_table, int (*hash)(word_t*),
                        unsigned int list_array_len)
 {
     *hash_table = (hash_table_t*) calloc(1, sizeof(hash_table_t));
@@ -103,7 +103,8 @@ errors read_text(FILE* input_address, struct stat* statistics, char** buffer,
     if (*buffer == NULL)
         return ALLOCATION_ERROR;
 
-    fread(*buffer, sizeof(char), statistics->st_size, input_address);
+    if (fread(*buffer, sizeof(char), statistics->st_size, input_address) == 0)
+        return TEXT_READING_ERROR;
     (*buffer)[statistics->st_size] = '\0';
 
     return NO_ERRORS;
@@ -123,9 +124,11 @@ errors find_words(hash_table_t* hash_table, char* buffer, unsigned long int buff
     assert(hash_table);
     assert(buffer);
 
-    char* word = buffer;
+    char* word_begin = buffer;
+    size_t word_len = 0;
     char* buffer_end = buffer + buffer_len;
     bool flag = false;
+    word_t* word = (word_t*) calloc(1, sizeof(word_t));
 
     while (buffer < buffer_end)
     {
@@ -133,7 +136,10 @@ errors find_words(hash_table_t* hash_table, char* buffer, unsigned long int buff
         {
             flag = false;
             *buffer = '\0';
-            //printf("hash(%s) = %d\n", word, (hash_table->hash_func)(word));
+            word->word = word_begin;
+            word->word_len = word_len;
+            word_len = 0;
+            //printf("hash(%s) = %d\n", word->word, (hash_table->hash_func)(word));
             if (find_word(hash_table, word))
             {
                 printf("Word not founded\n");
@@ -143,18 +149,22 @@ errors find_words(hash_table_t* hash_table, char* buffer, unsigned long int buff
         else
             if (flag == false)
             {
-                word = buffer;
+                word_begin = buffer;
                 flag = true;
             }
 
 
         buffer++;
+        if (flag == true)
+            word_len++;
     }
+
+    free(word);
 
     return NO_ERRORS;
 }
 
-errors find_word(hash_table_t* hash_table, char* word)
+errors find_word(hash_table_t* hash_table, word_t* word)
 {
     assert(hash_table);
     assert(word);
@@ -162,10 +172,11 @@ errors find_word(hash_table_t* hash_table, char* word)
     int word_hash = hash_table->hash_func(word);
     int list_number = (hash_table->list_array[word_hash]).list_array[0].next;
 
-    for (unsigned int i = 0; i < (hash_table->list_array[word_hash]).real_list_len; i++)
+    for (unsigned int i = 0; i < (hash_table->list_array[word_hash]).real_list_len; i++)//TODO сравнение по длине
     {
-        if (strcmp(word, (hash_table->list_array[word_hash]).list_array[list_number].data) == 0)
-            return NO_ERRORS;
+        if (word->word_len == (hash_table->list_array[word_hash]).list_array[list_number].data->word_len)
+            if (strcmp(word->word, (hash_table->list_array[word_hash]).list_array[list_number].data->word) == 0)
+                return NO_ERRORS;
         list_number = (hash_table->list_array[word_hash]).list_array[list_number].next;
     }
 

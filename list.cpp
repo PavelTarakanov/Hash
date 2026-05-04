@@ -8,7 +8,7 @@
 
 unsigned long long int dump_number = 0;
 
-int list_insert(list_t* list, char* value, unsigned int elem, char* const dump_file_name, FILE* const html_dump_address)
+int list_insert(list_t* list, word_t* value, unsigned int elem, char* const dump_file_name, FILE* const html_dump_address)
 {
     assert(list);
     assert(dump_file_name);
@@ -26,7 +26,7 @@ int list_insert(list_t* list, char* value, unsigned int elem, char* const dump_f
     }
 
     fprintf(html_dump_address, "<h3> DUMP <font color=red> BEFORE </font> INSERT %s AFTER NUMBER %d</h3>",
-            value, elem);
+            value->word, elem);
 
     //if (list_dump(list, dump_file_name, html_dump_address))
      //   return -1;
@@ -47,7 +47,7 @@ int list_insert(list_t* list, char* value, unsigned int elem, char* const dump_f
     list->real_list_len++;
 
     fprintf(html_dump_address, "<h3> DUMP <font color=red> AFTER </font> INSERT %s AFTER NUMBER %d</h3>",
-            value, elem);
+            value->word, elem);
 
     //if (list_dump(list, dump_file_name, html_dump_address))
       //  return -1;
@@ -115,7 +115,7 @@ int list_dump(list_t* list, char* const dump_file_name, FILE* const html_dump_ad
     for (unsigned int i = 1; i < list->list_len; i++)
     {
         if (list->list_array[i].elem_status == false)
-            fprintf(html_dump_address, "%10s\t", list->list_array[i].data);
+            fprintf(html_dump_address, "%10s\t", list->list_array[i].data->word);
         else
             fprintf(html_dump_address, "%10s\t", "NO_ELEM");
     }
@@ -143,7 +143,7 @@ int list_dump(list_t* list, char* const dump_file_name, FILE* const html_dump_ad
                 i, i, "NO_ELEM", list->list_array[i].prev, list->list_array[i].next);
         else
             fprintf(dump_address, " \t%d[color=\"green\", style=\"filled\",fillcolor=\"lightgrey\", shape = record, label=\"index = %d | value = %s | {prev = %d | next = %d}\"];\n",
-                i, i, list->list_array[i].data, list->list_array[i].prev, list->list_array[i].next);
+                i, i, list->list_array[i].data->word, list->list_array[i].prev, list->list_array[i].next);
 
         if (list->list_array[i].elem_status == true)
         {
@@ -238,6 +238,13 @@ void list_free(list_t* list)
 {
     assert(list);
 
+    int list_number = list->list_array[0].next;
+
+    for (unsigned int i = 0; i < list->real_list_len; i++)
+    {
+        free(list->list_array[list_number].data);
+        list_number = list->list_array[list_number].next;
+    }
     free(list->list_array);
 
     return;

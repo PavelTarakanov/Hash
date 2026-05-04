@@ -1,0 +1,177 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 1K of event 'cycles:P'
+# Event count (approx.): 943792262
+#
+# Overhead  Command  Shared Object         Symbol
+# ........  .......  ....................  .....................................................................................................................................................................................................................................................................................................................................................
+#
+    19.62%  a.out    a.out                 [.] find_word(hash_table_t*, word_t*)
+    16.86%  a.out    a.out                 [.] hash6(word_t*)
+    15.21%  a.out    a.out                 [.] find_words(hash_table_t*, char*, unsigned long)
+     9.40%  a.out    libasan.so.8.0.0      [.] ___interceptor_strcmp.part.0
+     6.85%  a.out    libc.so.6             [.] isblank
+     2.16%  a.out    a.out                 [.] hash_table_add(hash_table_t*, word_t*, _IO_FILE*)
+     1.49%  a.out    a.out                 [.] isblank@plt
+     1.49%  a.out    [kernel.kallsyms]     [k] asm_sysvec_apic_timer_interrupt
+     1.21%  a.out    libasan.so.8.0.0      [.] __asan::Allocator::Allocate(unsigned long, unsigned long, __sanitizer::BufferedStackTrace*, __asan::AllocType, bool)
+     1.01%  a.out    libasan.so.8.0.0      [.] __lsan::GetUserBegin(unsigned long)
+     0.96%  a.out    libasan.so.8.0.0      [.] __sanitizer::StackDepotBase<__sanitizer::StackDepotNode, 1, 20>::Put(__sanitizer::StackTrace, bool*)
+     0.79%  a.out    libasan.so.8.0.0      [.] __asan::AsanInitIsRunning()
+     0.79%  a.out    libasan.so.8.0.0      [.] __sanitizer::BufferedStackTrace::UnwindImpl(unsigned long, unsigned long, void*, bool, unsigned int)
+     0.78%  a.out    libasan.so.8.0.0      [.] __asan::Allocator::Deallocate(void*, unsigned long, unsigned long, __sanitizer::BufferedStackTrace*, __asan::AllocType)
+     0.78%  a.out    libasan.so.8.0.0      [.] ___interceptor_calloc
+     0.69%  a.out    libasan.so.8.0.0      [.] ___interceptor_free
+     0.69%  a.out    libasan.so.8.0.0      [.] __sanitizer::BufferedStackTrace::UnwindFast(unsigned long, unsigned long, unsigned long, unsigned long, unsigned int)
+     0.60%  a.out    libc.so.6             [.] pthread_getspecific@@GLIBC_2.34
+     0.60%  a.out    [kernel.kallsyms]     [k] clear_page_rep
+     0.52%  a.out    libasan.so.8.0.0      [.] ___interceptor_free.part.0
+     0.44%  a.out    a.out                 [.] make_hash_table(char*, hash_table_t*, unsigned long, _IO_FILE*)
+     0.43%  a.out    libasan.so.8.0.0      [.] __asan::GetMallocContextSize()
+     0.42%  a.out    libasan.so.8.0.0      [.] ___interceptor_vfprintf
+     0.42%  a.out    libasan.so.8.0.0      [.] __sanitizer::CombinedAllocator<__sanitizer::SizeClassAllocator64<__asan::AP64<__sanitizer::LocalAddressSpaceView> >, __sanitizer::LargeMmapAllocatorPtrArrayDynamic>::Allocate(__sanitizer::SizeClassAllocator64LocalCache<__sanitizer::SizeClassAllocator64<__asan::AP64<__sanitizer::LocalAddressSpaceView> > >*, unsigned long, unsigned long)
+     0.42%  a.out    ld-linux-x86-64.so.2  [.] do_lookup_x
+     0.42%  a.out    libasan.so.8.0.0      [.] printf_common(void*, char const*, __va_list_tag*)
+     0.38%  a.out    [kernel.kallsyms]     [k] sync_regs
+     0.35%  a.out    [kernel.kallsyms]     [k] get_page_from_freelist
+     0.34%  a.out    libasan.so.8.0.0      [.] __sanitizer::internal_strchr(char const*, int)
+     0.34%  a.out    libasan.so.8.0.0      [.] __sanitizer_internal_memset
+     0.32%  a.out    [kernel.kallsyms]     [k] asm_exc_page_fault
+     0.26%  a.out    libasan.so.8.0.0      [.] __asan::PoisonShadow(unsigned long, unsigned long, unsigned char)
+     0.26%  a.out    [kernel.kallsyms]     [k] rep_movs_alternative
+     0.26%  a.out    libasan.so.8.0.0      [.] __asan::asan_calloc(unsigned long, unsigned long, __sanitizer::BufferedStackTrace*)
+     0.26%  a.out    [kernel.kallsyms]     [k] get_mem_cgroup_from_mm
+     0.26%  a.out    libc.so.6             [.] __printf_buffer
+     0.26%  a.out    libasan.so.8.0.0      [.] __asan::FillChunk(__asan::AsanChunk*)
+     0.26%  a.out    libasan.so.8.0.0      [.] __sanitizer::internal_strlen(char const*)
+     0.26%  a.out    libasan.so.8.0.0      [.] __sanitizer::RunMallocHooks(void*, unsigned long)
+     0.26%  a.out    libasan.so.8.0.0      [.] __sanitizer::BufferedStackTrace::Unwind(unsigned int, unsigned long, unsigned long, void*, unsigned long, unsigned long, bool)
+     0.26%  a.out    libc.so.6             [.] __printf_buffer_write
+     0.25%  a.out    [kernel.kallsyms]     [k] do_user_addr_fault
+     0.25%  a.out    libasan.so.8.0.0      [.] __sanitizer::DTLS_on_tls_get_addr(void*, void*, unsigned long, unsigned long)
+     0.18%  a.out    [kernel.kallsyms]     [k] __rcu_read_lock
+     0.18%  a.out    libasan.so.8.0.0      [.] __sanitizer::Quarantine<__asan::QuarantineCallback, __asan::AsanChunk>::Put(__sanitizer::QuarantineCache<__asan::QuarantineCallback>*, __asan::QuarantineCallback, __asan::AsanChunk*, unsigned long)
+     0.18%  a.out    libasan.so.8.0.0      [.] __sanitizer::StackTrace::GetCurrentPc()
+     0.18%  a.out    libasan.so.8.0.0      [.] __asan::AsanThread::stack_bottom()
+     0.18%  a.out    libasan.so.8.0.0      [.] __asan_stack_malloc_0
+     0.17%  a.out    libasan.so.8.0.0      [.] __interceptor_free@plt
+     0.17%  a.out    libasan.so.8.0.0      [.] ___interceptor_strcmp
+     0.17%  a.out    libasan.so.8.0.0      [.] __asan::AsanInited()
+     0.17%  a.out    [kernel.kallsyms]     [k] native_flush_tlb_one_user
+     0.17%  a.out    a.out                 [.] free@plt
+     0.17%  a.out    [kernel.kallsyms]     [k] error_return
+     0.17%  a.out    a.out                 [.] __asan_stack_malloc_0@plt
+     0.17%  a.out    libc.so.6             [.] __memmove_avx_unaligned_erms
+     0.17%  a.out    [kernel.kallsyms]     [k] __x86_indirect_thunk_rax
+     0.17%  a.out    [kernel.kallsyms]     [k] __lruvec_stat_mod_folio
+     0.16%  a.out    [kernel.kallsyms]     [k] kmem_cache_free
+     0.16%  a.out    [kernel.kallsyms]     [k] __pte_offset_map
+     0.15%  a.out    libasan.so.8.0.0      [.] __lsan::CollectIgnoredCb(unsigned long, void*)
+     0.13%  a.out    [kernel.kallsyms]     [k] __alloc_pages
+     0.11%  a.out    [kernel.kallsyms]     [k] mt_find
+     0.09%  a.out    [kernel.kallsyms]     [k] mas_wr_store_entry.isra.0
+     0.09%  a.out    [kernel.kallsyms]     [k] handle_mm_fault
+     0.09%  a.out    [kernel.kallsyms]     [k] __irqentry_text_start
+     0.09%  a.out    libasan.so.8.0.0      [.] __interceptor_strcmp@plt
+     0.09%  a.out    [kernel.kallsyms]     [k] filemap_get_read_batch
+     0.09%  a.out    libasan.so.8.0.0      [.] __asan::AsanThread::stack_top()
+     0.09%  a.out    [kernel.kallsyms]     [k] __count_memcg_events
+     0.09%  a.out    [kernel.kallsyms]     [k] mem_cgroup_commit_charge
+     0.09%  a.out    libasan.so.8.0.0      [.] __asan::AsanTSDGet()
+     0.09%  a.out    libasan.so.8.0.0      [.] __sanitizer::RunFreeHooks(void*)
+     0.09%  a.out    [kernel.kallsyms]     [k] down_read_trylock
+     0.09%  a.out    [kernel.kallsyms]     [k] exc_page_fault
+     0.09%  a.out    [kernel.kallsyms]     [k] try_charge_memcg
+     0.09%  a.out    libasan.so.8.0.0      [.] __sanitizer::internal_allocator()
+     0.09%  a.out    [kernel.kallsyms]     [k] __pte_offset_map_lock
+     0.09%  a.out    [kernel.kallsyms]     [k] lru_gen_add_folio
+     0.09%  a.out    [kernel.kallsyms]     [k] native_write_msr
+     0.09%  a.out    [kernel.kallsyms]     [k] folio_lruvec_lock_irqsave
+     0.09%  a.out    [kernel.kallsyms]     [k] __es_tree_search.isra.0
+     0.09%  a.out    [kernel.kallsyms]     [k] folio_add_lru_vma
+     0.09%  a.out    libasan.so.8.0.0      [.] __asan::asan_free(void*, __sanitizer::BufferedStackTrace*, __asan::AllocType)
+     0.09%  a.out    libasan.so.8.0.0      [.] __sanitizer::SizeClassAllocator64<__asan::AP64<__sanitizer::LocalAddressSpaceView> >::PopulateFreeArray(__sanitizer::AllocatorStats*, unsigned long, __sanitizer::SizeClassAllocator64<__asan::AP64<__sanitizer::LocalAddressSpaceView> >::RegionInfo*, unsigned long)
+     0.09%  a.out    [kernel.kallsyms]     [k] clockevents_program_event
+     0.09%  a.out    [kernel.kallsyms]     [k] rmqueue_bulk
+     0.09%  a.out    [kernel.kallsyms]     [k] pud_val
+     0.09%  a.out    [kernel.kallsyms]     [k] kvm_sched_clock_read
+     0.09%  a.out    [kernel.kallsyms]     [k] __rcu_read_unlock
+     0.09%  a.out    [kernel.kallsyms]     [k] pte_alloc_one
+     0.09%  a.out    [kernel.kallsyms]     [k] do_wp_page
+     0.09%  a.out    [kernel.kallsyms]     [k] __memcg_slab_free_hook
+     0.09%  a.out    [kernel.kallsyms]     [k] put_cpu_partial
+     0.09%  a.out    ld-linux-x86-64.so.2  [.] _dl_lookup_symbol_x
+     0.09%  a.out    [kernel.kallsyms]     [k] mas_wr_modify
+     0.09%  a.out    [kernel.kallsyms]     [k] native_queued_spin_lock_slowpath
+     0.09%  a.out    [kernel.kallsyms]     [k] refill_obj_stock
+     0.09%  a.out    libasan.so.8.0.0      [.] __sanitizer_malloc_hook@plt
+     0.09%  a.out    [kernel.kallsyms]     [k] do_vmi_align_munmap
+     0.09%  a.out    [kernel.kallsyms]     [k] ext4_fill_raw_inode
+     0.09%  a.out    [kernel.kallsyms]     [k] ttwu_queue_wakelist
+     0.09%  a.out    [kernel.kallsyms]     [k] arch_exit_to_user_mode_prepare.isra.0
+     0.09%  a.out    libasan.so.8.0.0      [.] __asan::GetCurrentThread()
+     0.09%  a.out    [kernel.kallsyms]     [k] folio_add_new_anon_rmap
+     0.09%  a.out    [kernel.kallsyms]     [k] post_alloc_hook
+     0.09%  a.out    [kernel.kallsyms]     [k] xas_start
+     0.09%  a.out    [kernel.kallsyms]     [k] error_entry
+     0.09%  a.out    [kernel.kallsyms]     [k] pte_offset_map_nolock
+     0.09%  a.out    [kernel.kallsyms]     [k] pvclock_clocksource_read_nowd
+     0.09%  a.out    [kernel.kallsyms]     [k] generic_perform_write
+     0.09%  a.out    [kernel.kallsyms]     [k] filemap_map_pages
+     0.09%  a.out    [kernel.kallsyms]     [k] prepend_path
+     0.09%  a.out    libasan.so.8.0.0      [.] __sanitizer_weak_hook_strcmp@plt
+     0.09%  a.out    [kernel.kallsyms]     [k] __folio_start_writeback
+     0.09%  a.out    [kernel.kallsyms]     [k] lru_add_fn
+     0.09%  a.out    [kernel.kallsyms]     [k] __mod_memcg_lruvec_state
+     0.09%  a.out    [kernel.kallsyms]     [k] mark_buffer_dirty
+     0.09%  a.out    [kernel.kallsyms]     [k] vfs_write
+     0.09%  a.out    libasan.so.8.0.0      [.] __lsan::CollectLeaksCb(unsigned long, void*)
+     0.09%  a.out    [kernel.kallsyms]     [k] memset_orig
+     0.08%  a.out    libasan.so.8.0.0      [.] __interceptor___tls_get_addr@plt
+     0.08%  a.out    libc.so.6             [.] __strchrnul_avx2
+     0.08%  a.out    libasan.so.8.0.0      [.] maybe_parse_length_modifier(char const*, char*)
+     0.08%  a.out    libasan.so.8.0.0      [.] ioctl_init()
+     0.08%  a.out    [kernel.kallsyms]     [k] mod_objcg_state
+     0.08%  a.out    ld-linux-x86-64.so.2  [.] __tls_get_addr
+     0.08%  a.out    [kernel.kallsyms]     [k] __mod_zone_page_state
+     0.08%  a.out    libasan.so.8.0.0      [.] __lsan::MarkIndirectlyLeakedCb(unsigned long, void*)
+     0.08%  a.out    libc.so.6             [.] __printf_buffer_to_file_switch
+     0.08%  a.out    [kernel.kallsyms]     [k] get_pfnblock_flags_mask
+     0.08%  a.out    [kernel.kallsyms]     [k] lock_vma_under_rcu
+     0.08%  a.out    libasan.so.8.0.0      [.] __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::PopulateFreeList(__sanitizer::AllocatorStats*, __sanitizer::SizeClassAllocator32LocalCache<__sanitizer::SizeClassAllocator32<__sanitizer::AP32> >*, __sanitizer::SizeClassAllocator32<__sanitizer::AP32>::SizeClassInfo*, unsigned long)
+     0.08%  a.out    libasan.so.8.0.0      [.] __interceptor_trampoline___tls_get_addr
+     0.08%  a.out    libc.so.6             [.] __memset_avx2_unaligned
+     0.08%  a.out    [kernel.kallsyms]     [k] irqentry_exit
+     0.08%  a.out    libasan.so.8.0.0      [.] __lsan::ScanRangeForPointers(unsigned long, unsigned long, __sanitizer::InternalMmapVector<unsigned long>*, char const*, __lsan::ChunkTag)
+     0.08%  a.out    [kernel.kallsyms]     [k] __handle_mm_fault
+     0.07%  a.out    [kernel.kallsyms]     [k] mas_walk
+     0.06%  a.out    ld-linux-x86-64.so.2  [.] _dl_check_map_versions
+     0.05%  a.out    [kernel.kallsyms]     [k] kmem_cache_alloc
+     0.04%  a.out    libasan.so.8.0.0      [.] __lsan::LsanMetadata::LsanMetadata(unsigned long)
+     0.04%  a.out    [kernel.kallsyms]     [k] mod_memcg_state
+     0.03%  a.out    [kernel.kallsyms]     [k] security_inode_alloc
+     0.01%  a.out    [kernel.kallsyms]     [k] mas_preallocate
+     0.01%  a.out    [kernel.kallsyms]     [k] cond_accept_memory
+     0.00%  a.out    [kernel.kallsyms]     [k] mas_wr_node_store
+     0.00%  a.out    [kernel.kallsyms]     [k] perf_event_mmap_output
+     0.00%  a.out    [kernel.kallsyms]     [k] __update_load_avg_cfs_rq
+     0.00%  a.out    [kernel.kallsyms]     [k] nohz_balance_exit_idle
+     0.00%  a.out    [kernel.kallsyms]     [k] flush_signal_handlers
+     0.00%  a.out    [kernel.kallsyms]     [k] cap_task_prctl
+     0.00%  perf-ex  [kernel.kallsyms]     [k] perf_iterate_sb.constprop.0
+     0.00%  a.out    [kernel.kallsyms]     [k] do_syscall_64
+     0.00%  perf-ex  [kernel.kallsyms]     [k] strscpy
+     0.00%  a.out    libasan.so.8.0.0      [.] __sanitizer::TracerThread(void*)
+     0.00%  perf-ex  [kernel.kallsyms]     [k] perf_event_comm_event.constprop.0
+     0.00%  a.out    libasan.so.8.0.0      [.] __sanitizer::internal_clone(int (*)(void*), void*, int, void*, int*, void*, int*)
+     0.00%  perf-ex  [kernel.kallsyms]     [k] __memset
+     0.00%  a.out    [kernel.kallsyms]     [k] amd_pmu_enable_all
+     0.00%  perf-ex  [kernel.kallsyms]     [k] amd_pmu_enable_all
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#

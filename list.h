@@ -8,7 +8,12 @@ const int LEFT_BIRD = 2147483647;
 const int START_LIST_SIZE = 10;
 const int MAX_COMMAND_SIZE = 1000;
 
-struct list_array_t {char* data;
+struct word_t{
+    char* word;
+    size_t word_len;
+};
+
+struct list_array_t {word_t* data;
                      unsigned int next;
                      unsigned int prev;
                      bool elem_status;};
@@ -25,7 +30,7 @@ void list_free(list_t* list);
 int list_verify(list_t* list);
 int list_dump(list_t* list, char* const dump_file_name, FILE* const html_dump_address);
 int list_delete(list_t* list, unsigned int elem, char* const dump_file_name, FILE* const html_dump_address);
-int list_insert(list_t* list, char* value, unsigned int elem, char* const dump_file_name, FILE* const html_dump_address);
+int list_insert(list_t* list, word_t* value, unsigned int elem, char* const dump_file_name, FILE* const html_dump_address);
 void start_html_dump(FILE* html_dump_address);
 
 bool check_file_founded(int argc, int number_of_files);

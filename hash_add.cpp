@@ -15,9 +15,11 @@ errors make_hash_table(char* buffer, hash_table_t* hash_table,
     assert(buffer);
     assert(hash_table);
 
-    char* word = buffer;
+    char* word_begin = buffer;
+    size_t word_len = 0;
     char* buffer_end = buffer + buffer_len;
     bool flag = false;
+    word_t* word = NULL;
 
     while (buffer < buffer_end)
     {
@@ -25,24 +27,32 @@ errors make_hash_table(char* buffer, hash_table_t* hash_table,
         {
             flag = false;
             *buffer = '\0';
-            //printf("hash(%s) = %d\n", word, (hash_table->hash_func)(word));
+            word = (word_t*) calloc(1, sizeof(word_t));
+            word->word = word_begin;
+            word->word_len = word_len;
+            word_len = 0;
+
+            //printf("hash(%s) = %d, len = %lu\n", word->word, (hash_table->hash_func)(word), word->word_len);
             hash_table_add(hash_table, word, html_dump_address);
         }
         else
             if (flag == false)
             {
-                word = buffer;
+                word_begin = buffer;
                 flag = true;
             }
 
 
         buffer++;
+
+        if (flag == true)
+            word_len++;
     }
 
     return NO_ERRORS;
 }
 
-errors hash_table_add(hash_table_t* hash_table, char* word, FILE* html_dump_address)
+errors hash_table_add(hash_table_t* hash_table, word_t* word, FILE* html_dump_address)
 {
     assert(hash_table);
     assert(word);
@@ -53,8 +63,11 @@ errors hash_table_add(hash_table_t* hash_table, char* word, FILE* html_dump_addr
 
     for (unsigned int i = 0; i < (hash_table->list_array[word_hash]).real_list_len; i++)
     {
-        if (strcmp(word, (hash_table->list_array[word_hash]).list_array[list_number].data) == 0)
+        if (strcmp(word->word, (hash_table->list_array[word_hash]).list_array[list_number].data->word) == 0)
+        {
+            free(word);
             return NO_ERRORS;
+        }
         list_number = (hash_table->list_array[word_hash]).list_array[list_number].next;
     }
 
