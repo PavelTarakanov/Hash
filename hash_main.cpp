@@ -5,12 +5,11 @@
 #include <sys/stat.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdio.h>
 #include <ctype.h>
 #include "list.h"
 #include "hash.h"
 #include "file_using.h"
-
-//TODO KCachgrind valgrind
 
 int main(int argc, char* argv[])
 {
@@ -24,7 +23,7 @@ int main(int argc, char* argv[])
     unsigned long int finding_buffer_len = 0;
     hash_table_t* hash_table = NULL;
 
-    if (hash_table_init(&hash_table, hash6_optimised, HASH_LIST_SIZE))
+    if (hash_table_init(&hash_table, hash6, HASH_LIST_SIZE))
         return HASH_TABLE_MAKING_ERROR;
 
     if (check_file_founded(argc, NUMBER_OF_FILES))
@@ -140,11 +139,13 @@ errors find_words(hash_table_t* hash_table, char* buffer, unsigned long int buff
             word->word_len = word_len;
             word_len = 0;
             //printf("hash(%s) = %d\n", word->word, (hash_table->hash_func)(word));
-            if (find_word(hash_table, word))
-            {
-                printf("Word not founded\n");
-                return WORD_FOUNDING_ERROR;
-            }
+            for (int i = 0; i < 300; i++)
+                if (find_word(hash_table, word))
+                {
+                    printf("Word not founded\n");
+                    return WORD_FOUNDING_ERROR;
+                }
+
         }
         else
             if (flag == false)
@@ -172,7 +173,7 @@ errors find_word(hash_table_t* hash_table, word_t* word)
     int word_hash = hash_table->hash_func(word);
     int list_number = (hash_table->list_array[word_hash]).list_array[0].next;
 
-    for (unsigned int i = 0; i < (hash_table->list_array[word_hash]).real_list_len; i++)//TODO сравнение по длине
+    for (unsigned int i = 0; i < (hash_table->list_array[word_hash]).real_list_len; i++)
     {
         if (word->word_len == (hash_table->list_array[word_hash]).list_array[list_number].data->word_len)
             if (strcmp(word->word, (hash_table->list_array[word_hash]).list_array[list_number].data->word) == 0)
@@ -181,4 +182,40 @@ errors find_word(hash_table_t* hash_table, word_t* word)
     }
 
     return WORD_FOUNDING_ERROR;
+}
+
+int strcmp_asm(const char* str1, const char* str2)
+{
+    assert(str1);
+    assert(str2);
+
+    int result;
+
+    __asm__ volatile (
+        ".intel_syntax noprefix\n"
+        "1:\n"
+        "mov al, [rdi]\n"
+        "mov bl, [rsi]\n"
+        "cmp al, bl\n"
+        "jne 2f\n"
+        "test al, al\n"
+        "je 3f\n"
+        "inc rdi\n"
+        "inc rsi\n"
+        "jmp 1b\n"
+        "2:\n"
+        "movzx eax, al\n"
+        "movzx ecx, bl\n"
+        "sub eax, ecx\n"
+        "jmp 4f\n"
+        "3:\n"
+        "xor eax, eax\n"
+        "4:\n"
+        ".att_syntax prefix\n"
+        : "=a" (result)
+        : "D" (str1), "S" (str2)
+        : "ecx", "ebx", "cc", "memory"
+    );
+
+    return result;
 }

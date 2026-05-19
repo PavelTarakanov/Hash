@@ -54,4 +54,6 @@ errors hash_table_init(hash_table_t** hash_table, int (*hash)(word_t*),
                        unsigned int list_array_len);
 void hash_table_destroy(hash_table_t* hash_table);
 
+int strcmp_asm(const char* str_1, const char* str_2);
+
 #endif //TEXT_PREPARE_H

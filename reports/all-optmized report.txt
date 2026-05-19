@@ -1,3 +1,6 @@
+real    0m9.078s
+user    0m8.474s
+sys     0m0.602s
 # To display the perf.data header info, please use --header/--header-only options.
 #
 #
@@ -6,28 +9,28 @@
 # Samples: 41K of event 'cycles:P'
 # Event count (approx.): 34382954959
 #
-# Children      Self  Command  Shared Object         Symbol                                                             
+# Children      Self  Command  Shared Object         Symbol
 # ........  ........  .......  ....................  ...................................................................
 #
     57.20%     0.00%  a.out    [unknown]             [.] 0x00005703aa7952c0
             |
             ---0x5703aa7952c0
-               |          
+               |
                |--33.65%--find_word(hash_table_t*, word_t*)
-               |          |          
+               |          |
                |           --0.79%--asm_sysvec_apic_timer_interrupt
-               |          
+               |
                |--14.15%--hash6_optimised(word_t*)
-               |          
+               |
                 --9.40%--strcmp_asm(char const*, char const*)
 
     34.70%    33.87%  a.out    a.out                 [.] find_word(hash_table_t*, word_t*)
-            |          
+            |
             |--32.83%--0x5703aa7952c0
             |          find_word(hash_table_t*, word_t*)
-            |          
+            |
              --1.87%--find_word(hash_table_t*, word_t*)
-                       |          
+                       |
                         --0.81%--asm_sysvec_apic_timer_interrupt
 
     18.48%    18.18%  a.out    a.out                 [.] find_words(hash_table_t*, char*, unsigned long)
@@ -39,12 +42,12 @@
             ---isblank
 
     14.16%    13.89%  a.out    a.out                 [.] hash6_optimised(word_t*)
-            |          
+            |
              --13.88%--0x5703aa7952c0
                        hash6_optimised(word_t*)
 
      9.41%     9.22%  a.out    a.out                 [.] strcmp_asm(char const*, char const*)
-            |          
+            |
              --9.21%--0x5703aa7952c0
                        strcmp_asm(char const*, char const*)
 
@@ -52,164 +55,164 @@
             |
             ---entry_SYSCALL_64_after_hwframe
                do_syscall_64
-               |          
+               |
                 --6.44%--x64_sys_call
-                          |          
+                          |
                           |--5.64%--__x64_sys_read
                           |          ksys_read
                           |          vfs_read
                           |          ext4_file_read_iter
                           |          generic_file_read_iter
-                          |          |          
+                          |          |
                           |           --5.63%--filemap_read
-                          |                     |          
+                          |                     |
                           |                      --5.38%--copy_page_to_iter
-                          |                                |          
+                          |                                |
                           |                                 --5.07%--rep_movs_alternative
-                          |                                           |          
+                          |                                           |
                           |                                            --3.95%--asm_exc_page_fault
-                          |                                                      |          
+                          |                                                      |
                           |                                                       --3.90%--exc_page_fault
-                          |                                                                 |          
+                          |                                                                 |
                           |                                                                  --3.61%--do_user_addr_fault
-                          |                                                                            |          
+                          |                                                                            |
                           |                                                                             --3.15%--handle_mm_fault
-                          |                                                                                       |          
+                          |                                                                                       |
                           |                                                                                        --2.91%--__handle_mm_fault
-                          |                                                                                                  |          
+                          |                                                                                                  |
                           |                                                                                                   --2.74%--handle_pte_fault
-                          |                                                                                                             |          
+                          |                                                                                                             |
                           |                                                                                                              --2.55%--do_anonymous_page
-                          |                                                                                                                        |          
+                          |                                                                                                                        |
                           |                                                                                                                         --1.26%--alloc_anon_folio
-                          |                                                                                                                                   |          
+                          |                                                                                                                                   |
                           |                                                                                                                                    --1.22%--vma_alloc_folio
-                          |                                                                                                                                              |          
+                          |                                                                                                                                              |
                           |                                                                                                                                               --1.14%--alloc_pages_mpol
-                          |                                                                                                                                                         |          
+                          |                                                                                                                                                         |
                           |                                                                                                                                                          --0.99%--__alloc_pages
-                          |                                                                                                                                                                    |          
+                          |                                                                                                                                                                    |
                           |                                                                                                                                                                     --0.83%--get_page_from_freelist
-                          |          
+                          |
                            --0.77%--__x64_sys_munmap
                                      __vm_munmap
                                      do_vmi_munmap
                                      do_vmi_align_munmap
                                      unmap_region
-                                     |          
+                                     |
                                       --0.76%--unmap_vmas
                                                 unmap_single_vma
                                                 unmap_page_range
                                                 zap_pmd_range.isra.0
-                                                |          
+                                                |
                                                  --0.74%--zap_pte_range
 
      6.45%     0.00%  a.out    [kernel.kallsyms]     [k] do_syscall_64
             |
             ---do_syscall_64
-               |          
+               |
                 --6.44%--x64_sys_call
-                          |          
+                          |
                           |--5.64%--__x64_sys_read
                           |          ksys_read
                           |          vfs_read
                           |          ext4_file_read_iter
                           |          generic_file_read_iter
-                          |          |          
+                          |          |
                           |           --5.63%--filemap_read
-                          |                     |          
+                          |                     |
                           |                      --5.38%--copy_page_to_iter
-                          |                                |          
+                          |                                |
                           |                                 --5.07%--rep_movs_alternative
-                          |                                           |          
+                          |                                           |
                           |                                            --3.95%--asm_exc_page_fault
-                          |                                                      |          
+                          |                                                      |
                           |                                                       --3.90%--exc_page_fault
-                          |                                                                 |          
+                          |                                                                 |
                           |                                                                  --3.61%--do_user_addr_fault
-                          |                                                                            |          
+                          |                                                                            |
                           |                                                                             --3.15%--handle_mm_fault
-                          |                                                                                       |          
+                          |                                                                                       |
                           |                                                                                        --2.91%--__handle_mm_fault
-                          |                                                                                                  |          
+                          |                                                                                                  |
                           |                                                                                                   --2.74%--handle_pte_fault
-                          |                                                                                                             |          
+                          |                                                                                                             |
                           |                                                                                                              --2.55%--do_anonymous_page
-                          |                                                                                                                        |          
+                          |                                                                                                                        |
                           |                                                                                                                         --1.26%--alloc_anon_folio
-                          |                                                                                                                                   |          
+                          |                                                                                                                                   |
                           |                                                                                                                                    --1.22%--vma_alloc_folio
-                          |                                                                                                                                              |          
+                          |                                                                                                                                              |
                           |                                                                                                                                               --1.14%--alloc_pages_mpol
-                          |                                                                                                                                                         |          
+                          |                                                                                                                                                         |
                           |                                                                                                                                                          --0.99%--__alloc_pages
-                          |                                                                                                                                                                    |          
+                          |                                                                                                                                                                    |
                           |                                                                                                                                                                     --0.83%--get_page_from_freelist
-                          |          
+                          |
                            --0.77%--__x64_sys_munmap
                                      __vm_munmap
                                      do_vmi_munmap
                                      do_vmi_align_munmap
                                      unmap_region
-                                     |          
+                                     |
                                       --0.76%--unmap_vmas
                                                 unmap_single_vma
                                                 unmap_page_range
                                                 zap_pmd_range.isra.0
-                                                |          
+                                                |
                                                  --0.74%--zap_pte_range
 
      6.44%     0.00%  a.out    [kernel.kallsyms]     [k] x64_sys_call
             |
             ---x64_sys_call
-               |          
+               |
                |--5.64%--__x64_sys_read
                |          ksys_read
                |          vfs_read
                |          ext4_file_read_iter
                |          generic_file_read_iter
-               |          |          
+               |          |
                |           --5.63%--filemap_read
-               |                     |          
+               |                     |
                |                      --5.38%--copy_page_to_iter
-               |                                |          
+               |                                |
                |                                 --5.07%--rep_movs_alternative
-               |                                           |          
+               |                                           |
                |                                            --3.95%--asm_exc_page_fault
-               |                                                      |          
+               |                                                      |
                |                                                       --3.90%--exc_page_fault
-               |                                                                 |          
+               |                                                                 |
                |                                                                  --3.61%--do_user_addr_fault
-               |                                                                            |          
+               |                                                                            |
                |                                                                             --3.15%--handle_mm_fault
-               |                                                                                       |          
+               |                                                                                       |
                |                                                                                        --2.91%--__handle_mm_fault
-               |                                                                                                  |          
+               |                                                                                                  |
                |                                                                                                   --2.74%--handle_pte_fault
-               |                                                                                                             |          
+               |                                                                                                             |
                |                                                                                                              --2.55%--do_anonymous_page
-               |                                                                                                                        |          
+               |                                                                                                                        |
                |                                                                                                                         --1.26%--alloc_anon_folio
-               |                                                                                                                                   |          
+               |                                                                                                                                   |
                |                                                                                                                                    --1.22%--vma_alloc_folio
-               |                                                                                                                                              |          
+               |                                                                                                                                              |
                |                                                                                                                                               --1.14%--alloc_pages_mpol
-               |                                                                                                                                                         |          
+               |                                                                                                                                                         |
                |                                                                                                                                                          --0.99%--__alloc_pages
-               |                                                                                                                                                                    |          
+               |                                                                                                                                                                    |
                |                                                                                                                                                                     --0.83%--get_page_from_freelist
-               |          
+               |
                 --0.77%--__x64_sys_munmap
                           __vm_munmap
                           do_vmi_munmap
                           do_vmi_align_munmap
                           unmap_region
-                          |          
+                          |
                            --0.76%--unmap_vmas
                                      unmap_single_vma
                                      unmap_page_range
                                      zap_pmd_range.isra.0
-                                     |          
+                                     |
                                       --0.74%--zap_pte_range
 
      5.64%     0.00%  a.out    a.out                 [.] read_text(_IO_FILE*, stat*, char**, unsigned long*)
@@ -225,35 +228,35 @@
                vfs_read
                ext4_file_read_iter
                generic_file_read_iter
-               |          
+               |
                 --5.63%--filemap_read
-                          |          
+                          |
                            --5.38%--copy_page_to_iter
-                                     |          
+                                     |
                                       --5.07%--rep_movs_alternative
-                                                |          
+                                                |
                                                  --3.95%--asm_exc_page_fault
-                                                           |          
+                                                           |
                                                             --3.90%--exc_page_fault
-                                                                      |          
+                                                                      |
                                                                        --3.61%--do_user_addr_fault
-                                                                                 |          
+                                                                                 |
                                                                                   --3.15%--handle_mm_fault
-                                                                                            |          
+                                                                                            |
                                                                                              --2.91%--__handle_mm_fault
-                                                                                                       |          
+                                                                                                       |
                                                                                                         --2.74%--handle_pte_fault
-                                                                                                                  |          
+                                                                                                                  |
                                                                                                                    --2.55%--do_anonymous_page
-                                                                                                                             |          
+                                                                                                                             |
                                                                                                                               --1.26%--alloc_anon_folio
-                                                                                                                                        |          
+                                                                                                                                        |
                                                                                                                                          --1.22%--vma_alloc_folio
-                                                                                                                                                   |          
+                                                                                                                                                   |
                                                                                                                                                     --1.14%--alloc_pages_mpol
-                                                                                                                                                              |          
+                                                                                                                                                              |
                                                                                                                                                                --0.99%--__alloc_pages
-                                                                                                                                                                         |          
+                                                                                                                                                                         |
                                                                                                                                                                           --0.83%--get_page_from_freelist
 
      5.64%     0.00%  a.out    libc.so.6             [.] __fread_chk
@@ -268,35 +271,35 @@
                vfs_read
                ext4_file_read_iter
                generic_file_read_iter
-               |          
+               |
                 --5.63%--filemap_read
-                          |          
+                          |
                            --5.38%--copy_page_to_iter
-                                     |          
+                                     |
                                       --5.07%--rep_movs_alternative
-                                                |          
+                                                |
                                                  --3.95%--asm_exc_page_fault
-                                                           |          
+                                                           |
                                                             --3.90%--exc_page_fault
-                                                                      |          
+                                                                      |
                                                                        --3.61%--do_user_addr_fault
-                                                                                 |          
+                                                                                 |
                                                                                   --3.15%--handle_mm_fault
-                                                                                            |          
+                                                                                            |
                                                                                              --2.91%--__handle_mm_fault
-                                                                                                       |          
+                                                                                                       |
                                                                                                         --2.74%--handle_pte_fault
-                                                                                                                  |          
+                                                                                                                  |
                                                                                                                    --2.55%--do_anonymous_page
-                                                                                                                             |          
+                                                                                                                             |
                                                                                                                               --1.26%--alloc_anon_folio
-                                                                                                                                        |          
+                                                                                                                                        |
                                                                                                                                          --1.22%--vma_alloc_folio
-                                                                                                                                                   |          
+                                                                                                                                                   |
                                                                                                                                                     --1.14%--alloc_pages_mpol
-                                                                                                                                                              |          
+                                                                                                                                                              |
                                                                                                                                                                --0.99%--__alloc_pages
-                                                                                                                                                                         |          
+                                                                                                                                                                         |
                                                                                                                                                                           --0.83%--get_page_from_freelist
 
      5.64%     0.00%  a.out    libc.so.6             [.] read
@@ -310,35 +313,35 @@
                vfs_read
                ext4_file_read_iter
                generic_file_read_iter
-               |          
+               |
                 --5.63%--filemap_read
-                          |          
+                          |
                            --5.38%--copy_page_to_iter
-                                     |          
+                                     |
                                       --5.07%--rep_movs_alternative
-                                                |          
+                                                |
                                                  --3.95%--asm_exc_page_fault
-                                                           |          
+                                                           |
                                                             --3.90%--exc_page_fault
-                                                                      |          
+                                                                      |
                                                                        --3.61%--do_user_addr_fault
-                                                                                 |          
+                                                                                 |
                                                                                   --3.15%--handle_mm_fault
-                                                                                            |          
+                                                                                            |
                                                                                              --2.91%--__handle_mm_fault
-                                                                                                       |          
+                                                                                                       |
                                                                                                         --2.74%--handle_pte_fault
-                                                                                                                  |          
+                                                                                                                  |
                                                                                                                    --2.55%--do_anonymous_page
-                                                                                                                             |          
+                                                                                                                             |
                                                                                                                               --1.26%--alloc_anon_folio
-                                                                                                                                        |          
+                                                                                                                                        |
                                                                                                                                          --1.22%--vma_alloc_folio
-                                                                                                                                                   |          
+                                                                                                                                                   |
                                                                                                                                                     --1.14%--alloc_pages_mpol
-                                                                                                                                                              |          
+                                                                                                                                                              |
                                                                                                                                                                --0.99%--__alloc_pages
-                                                                                                                                                                         |          
+                                                                                                                                                                         |
                                                                                                                                                                           --0.83%--get_page_from_freelist
 
      5.64%     0.00%  a.out    [kernel.kallsyms]     [k] __x64_sys_read
@@ -348,35 +351,35 @@
                vfs_read
                ext4_file_read_iter
                generic_file_read_iter
-               |          
+               |
                 --5.63%--filemap_read
-                          |          
+                          |
                            --5.38%--copy_page_to_iter
-                                     |          
+                                     |
                                       --5.07%--rep_movs_alternative
-                                                |          
+                                                |
                                                  --3.95%--asm_exc_page_fault
-                                                           |          
+                                                           |
                                                             --3.90%--exc_page_fault
-                                                                      |          
+                                                                      |
                                                                        --3.61%--do_user_addr_fault
-                                                                                 |          
+                                                                                 |
                                                                                   --3.15%--handle_mm_fault
-                                                                                            |          
+                                                                                            |
                                                                                              --2.91%--__handle_mm_fault
-                                                                                                       |          
+                                                                                                       |
                                                                                                         --2.74%--handle_pte_fault
-                                                                                                                  |          
+                                                                                                                  |
                                                                                                                    --2.55%--do_anonymous_page
-                                                                                                                             |          
+                                                                                                                             |
                                                                                                                               --1.26%--alloc_anon_folio
-                                                                                                                                        |          
+                                                                                                                                        |
                                                                                                                                          --1.22%--vma_alloc_folio
-                                                                                                                                                   |          
+                                                                                                                                                   |
                                                                                                                                                     --1.14%--alloc_pages_mpol
-                                                                                                                                                              |          
+                                                                                                                                                              |
                                                                                                                                                                --0.99%--__alloc_pages
-                                                                                                                                                                         |          
+                                                                                                                                                                         |
                                                                                                                                                                           --0.83%--get_page_from_freelist
 
      5.64%     0.00%  a.out    [kernel.kallsyms]     [k] ksys_read
@@ -385,35 +388,35 @@
                vfs_read
                ext4_file_read_iter
                generic_file_read_iter
-               |          
+               |
                 --5.63%--filemap_read
-                          |          
+                          |
                            --5.38%--copy_page_to_iter
-                                     |          
+                                     |
                                       --5.07%--rep_movs_alternative
-                                                |          
+                                                |
                                                  --3.95%--asm_exc_page_fault
-                                                           |          
+                                                           |
                                                             --3.90%--exc_page_fault
-                                                                      |          
+                                                                      |
                                                                        --3.61%--do_user_addr_fault
-                                                                                 |          
+                                                                                 |
                                                                                   --3.15%--handle_mm_fault
-                                                                                            |          
+                                                                                            |
                                                                                              --2.91%--__handle_mm_fault
-                                                                                                       |          
+                                                                                                       |
                                                                                                         --2.74%--handle_pte_fault
-                                                                                                                  |          
+                                                                                                                  |
                                                                                                                    --2.55%--do_anonymous_page
-                                                                                                                             |          
+                                                                                                                             |
                                                                                                                               --1.26%--alloc_anon_folio
-                                                                                                                                        |          
+                                                                                                                                        |
                                                                                                                                          --1.22%--vma_alloc_folio
-                                                                                                                                                   |          
+                                                                                                                                                   |
                                                                                                                                                     --1.14%--alloc_pages_mpol
-                                                                                                                                                              |          
+                                                                                                                                                              |
                                                                                                                                                                --0.99%--__alloc_pages
-                                                                                                                                                                         |          
+                                                                                                                                                                         |
                                                                                                                                                                           --0.83%--get_page_from_freelist
 
      5.64%     0.00%  a.out    [kernel.kallsyms]     [k] vfs_read
@@ -421,104 +424,104 @@
             ---vfs_read
                ext4_file_read_iter
                generic_file_read_iter
-               |          
+               |
                 --5.63%--filemap_read
-                          |          
+                          |
                            --5.38%--copy_page_to_iter
-                                     |          
+                                     |
                                       --5.07%--rep_movs_alternative
-                                                |          
+                                                |
                                                  --3.95%--asm_exc_page_fault
-                                                           |          
+                                                           |
                                                             --3.90%--exc_page_fault
-                                                                      |          
+                                                                      |
                                                                        --3.61%--do_user_addr_fault
-                                                                                 |          
+                                                                                 |
                                                                                   --3.15%--handle_mm_fault
-                                                                                            |          
+                                                                                            |
                                                                                              --2.91%--__handle_mm_fault
-                                                                                                       |          
+                                                                                                       |
                                                                                                         --2.74%--handle_pte_fault
-                                                                                                                  |          
+                                                                                                                  |
                                                                                                                    --2.55%--do_anonymous_page
-                                                                                                                             |          
+                                                                                                                             |
                                                                                                                               --1.26%--alloc_anon_folio
-                                                                                                                                        |          
+                                                                                                                                        |
                                                                                                                                          --1.22%--vma_alloc_folio
-                                                                                                                                                   |          
+                                                                                                                                                   |
                                                                                                                                                     --1.14%--alloc_pages_mpol
-                                                                                                                                                              |          
+                                                                                                                                                              |
                                                                                                                                                                --0.99%--__alloc_pages
-                                                                                                                                                                         |          
+                                                                                                                                                                         |
                                                                                                                                                                           --0.83%--get_page_from_freelist
 
      5.64%     0.00%  a.out    [kernel.kallsyms]     [k] ext4_file_read_iter
             |
             ---ext4_file_read_iter
                generic_file_read_iter
-               |          
+               |
                 --5.63%--filemap_read
-                          |          
+                          |
                            --5.38%--copy_page_to_iter
-                                     |          
+                                     |
                                       --5.07%--rep_movs_alternative
-                                                |          
+                                                |
                                                  --3.95%--asm_exc_page_fault
-                                                           |          
+                                                           |
                                                             --3.90%--exc_page_fault
-                                                                      |          
+                                                                      |
                                                                        --3.61%--do_user_addr_fault
-                                                                                 |          
+                                                                                 |
                                                                                   --3.15%--handle_mm_fault
-                                                                                            |          
+                                                                                            |
                                                                                              --2.91%--__handle_mm_fault
-                                                                                                       |          
+                                                                                                       |
                                                                                                         --2.74%--handle_pte_fault
-                                                                                                                  |          
+                                                                                                                  |
                                                                                                                    --2.55%--do_anonymous_page
-                                                                                                                             |          
+                                                                                                                             |
                                                                                                                               --1.26%--alloc_anon_folio
-                                                                                                                                        |          
+                                                                                                                                        |
                                                                                                                                          --1.22%--vma_alloc_folio
-                                                                                                                                                   |          
+                                                                                                                                                   |
                                                                                                                                                     --1.14%--alloc_pages_mpol
-                                                                                                                                                              |          
+                                                                                                                                                              |
                                                                                                                                                                --0.99%--__alloc_pages
-                                                                                                                                                                         |          
+                                                                                                                                                                         |
                                                                                                                                                                           --0.83%--get_page_from_freelist
 
      5.64%     0.00%  a.out    [kernel.kallsyms]     [k] generic_file_read_iter
             |
             ---generic_file_read_iter
-               |          
+               |
                 --5.63%--filemap_read
-                          |          
+                          |
                            --5.38%--copy_page_to_iter
-                                     |          
+                                     |
                                       --5.07%--rep_movs_alternative
-                                                |          
+                                                |
                                                  --3.95%--asm_exc_page_fault
-                                                           |          
+                                                           |
                                                             --3.90%--exc_page_fault
-                                                                      |          
+                                                                      |
                                                                        --3.61%--do_user_addr_fault
-                                                                                 |          
+                                                                                 |
                                                                                   --3.15%--handle_mm_fault
-                                                                                            |          
+                                                                                            |
                                                                                              --2.91%--__handle_mm_fault
-                                                                                                       |          
+                                                                                                       |
                                                                                                         --2.74%--handle_pte_fault
-                                                                                                                  |          
+                                                                                                                  |
                                                                                                                    --2.55%--do_anonymous_page
-                                                                                                                             |          
+                                                                                                                             |
                                                                                                                               --1.26%--alloc_anon_folio
-                                                                                                                                        |          
+                                                                                                                                        |
                                                                                                                                          --1.22%--vma_alloc_folio
-                                                                                                                                                   |          
+                                                                                                                                                   |
                                                                                                                                                     --1.14%--alloc_pages_mpol
-                                                                                                                                                              |          
+                                                                                                                                                              |
                                                                                                                                                                --0.99%--__alloc_pages
-                                                                                                                                                                         |          
+                                                                                                                                                                         |
                                                                                                                                                                           --0.83%--get_page_from_freelist
 
      5.63%     0.00%  a.out    [unknown]             [k] 0x00005703aa8e4910
@@ -535,127 +538,127 @@
                vfs_read
                ext4_file_read_iter
                generic_file_read_iter
-               |          
+               |
                 --5.62%--filemap_read
-                          |          
+                          |
                            --5.38%--copy_page_to_iter
-                                     |          
+                                     |
                                       --5.07%--rep_movs_alternative
-                                                |          
+                                                |
                                                  --3.95%--asm_exc_page_fault
-                                                           |          
+                                                           |
                                                             --3.90%--exc_page_fault
-                                                                      |          
+                                                                      |
                                                                        --3.61%--do_user_addr_fault
-                                                                                 |          
+                                                                                 |
                                                                                   --3.15%--handle_mm_fault
-                                                                                            |          
+                                                                                            |
                                                                                              --2.91%--__handle_mm_fault
-                                                                                                       |          
+                                                                                                       |
                                                                                                         --2.73%--handle_pte_fault
-                                                                                                                  |          
+                                                                                                                  |
                                                                                                                    --2.54%--do_anonymous_page
-                                                                                                                             |          
+                                                                                                                             |
                                                                                                                               --1.26%--alloc_anon_folio
-                                                                                                                                        |          
+                                                                                                                                        |
                                                                                                                                          --1.22%--vma_alloc_folio
-                                                                                                                                                   |          
+                                                                                                                                                   |
                                                                                                                                                     --1.14%--alloc_pages_mpol
-                                                                                                                                                              |          
+                                                                                                                                                              |
                                                                                                                                                                --0.99%--__alloc_pages
-                                                                                                                                                                         |          
+                                                                                                                                                                         |
                                                                                                                                                                           --0.83%--get_page_from_freelist
 
      5.63%     0.06%  a.out    [kernel.kallsyms]     [k] filemap_read
-            |          
+            |
              --5.57%--filemap_read
-                       |          
+                       |
                         --5.38%--copy_page_to_iter
-                                  |          
+                                  |
                                    --5.07%--rep_movs_alternative
-                                             |          
+                                             |
                                               --3.95%--asm_exc_page_fault
-                                                        |          
+                                                        |
                                                          --3.90%--exc_page_fault
-                                                                   |          
+                                                                   |
                                                                     --3.61%--do_user_addr_fault
-                                                                              |          
+                                                                              |
                                                                                --3.15%--handle_mm_fault
-                                                                                         |          
+                                                                                         |
                                                                                           --2.91%--__handle_mm_fault
-                                                                                                    |          
+                                                                                                    |
                                                                                                      --2.74%--handle_pte_fault
-                                                                                                               |          
+                                                                                                               |
                                                                                                                 --2.55%--do_anonymous_page
-                                                                                                                          |          
+                                                                                                                          |
                                                                                                                            --1.26%--alloc_anon_folio
-                                                                                                                                     |          
+                                                                                                                                     |
                                                                                                                                       --1.22%--vma_alloc_folio
-                                                                                                                                                |          
+                                                                                                                                                |
                                                                                                                                                  --1.14%--alloc_pages_mpol
-                                                                                                                                                           |          
+                                                                                                                                                           |
                                                                                                                                                             --0.99%--__alloc_pages
-                                                                                                                                                                      |          
+                                                                                                                                                                      |
                                                                                                                                                                        --0.83%--get_page_from_freelist
 
      5.38%     0.01%  a.out    [kernel.kallsyms]     [k] copy_page_to_iter
-            |          
+            |
              --5.37%--copy_page_to_iter
-                       |          
+                       |
                         --5.07%--rep_movs_alternative
-                                  |          
+                                  |
                                    --3.95%--asm_exc_page_fault
-                                             |          
+                                             |
                                               --3.90%--exc_page_fault
-                                                        |          
+                                                        |
                                                          --3.61%--do_user_addr_fault
-                                                                   |          
+                                                                   |
                                                                     --3.15%--handle_mm_fault
-                                                                              |          
+                                                                              |
                                                                                --2.91%--__handle_mm_fault
-                                                                                         |          
+                                                                                         |
                                                                                           --2.74%--handle_pte_fault
-                                                                                                    |          
+                                                                                                    |
                                                                                                      --2.55%--do_anonymous_page
-                                                                                                               |          
+                                                                                                               |
                                                                                                                 --1.26%--alloc_anon_folio
-                                                                                                                          |          
+                                                                                                                          |
                                                                                                                            --1.22%--vma_alloc_folio
-                                                                                                                                     |          
+                                                                                                                                     |
                                                                                                                                       --1.14%--alloc_pages_mpol
-                                                                                                                                                |          
+                                                                                                                                                |
                                                                                                                                                  --0.99%--__alloc_pages
-                                                                                                                                                           |          
+                                                                                                                                                           |
                                                                                                                                                             --0.83%--get_page_from_freelist
 
      5.07%     1.12%  a.out    [kernel.kallsyms]     [k] rep_movs_alternative
-            |          
+            |
             |--3.95%--rep_movs_alternative
-            |          |          
+            |          |
             |           --3.95%--asm_exc_page_fault
-            |                     |          
+            |                     |
             |                      --3.90%--exc_page_fault
-            |                                |          
+            |                                |
             |                                 --3.61%--do_user_addr_fault
-            |                                           |          
+            |                                           |
             |                                            --3.15%--handle_mm_fault
-            |                                                      |          
+            |                                                      |
             |                                                       --2.91%--__handle_mm_fault
-            |                                                                 |          
+            |                                                                 |
             |                                                                  --2.74%--handle_pte_fault
-            |                                                                            |          
+            |                                                                            |
             |                                                                             --2.55%--do_anonymous_page
-            |                                                                                       |          
+            |                                                                                       |
             |                                                                                        --1.26%--alloc_anon_folio
-            |                                                                                                  |          
+            |                                                                                                  |
             |                                                                                                   --1.22%--vma_alloc_folio
-            |                                                                                                             |          
+            |                                                                                                             |
             |                                                                                                              --1.14%--alloc_pages_mpol
-            |                                                                                                                        |          
+            |                                                                                                                        |
             |                                                                                                                         --0.99%--__alloc_pages
-            |                                                                                                                                   |          
+            |                                                                                                                                   |
             |                                                                                                                                    --0.83%--get_page_from_freelist
-            |          
+            |
              --1.12%--0x5703aa8e4910
                        read_text(_IO_FILE*, stat*, char**, unsigned long*)
                        __fread_chk
@@ -673,157 +676,157 @@
                        rep_movs_alternative
 
      4.02%     0.07%  a.out    [kernel.kallsyms]     [k] asm_exc_page_fault
-            |          
+            |
              --3.95%--asm_exc_page_fault
-                       |          
+                       |
                         --3.91%--exc_page_fault
-                                  |          
+                                  |
                                    --3.61%--do_user_addr_fault
-                                             |          
+                                             |
                                               --3.15%--handle_mm_fault
-                                                        |          
+                                                        |
                                                          --2.92%--__handle_mm_fault
-                                                                   |          
+                                                                   |
                                                                     --2.74%--handle_pte_fault
-                                                                              |          
+                                                                              |
                                                                                --2.55%--do_anonymous_page
-                                                                                         |          
+                                                                                         |
                                                                                           --1.27%--alloc_anon_folio
-                                                                                                    |          
+                                                                                                    |
                                                                                                      --1.22%--vma_alloc_folio
-                                                                                                               |          
+                                                                                                               |
                                                                                                                 --1.14%--alloc_pages_mpol
-                                                                                                                          |          
+                                                                                                                          |
                                                                                                                            --0.99%--__alloc_pages
-                                                                                                                                     |          
+                                                                                                                                     |
                                                                                                                                       --0.83%--get_page_from_freelist
 
      3.91%     0.18%  a.out    [kernel.kallsyms]     [k] exc_page_fault
-            |          
+            |
              --3.73%--exc_page_fault
-                       |          
+                       |
                         --3.61%--do_user_addr_fault
-                                  |          
+                                  |
                                    --3.15%--handle_mm_fault
-                                             |          
+                                             |
                                               --2.92%--__handle_mm_fault
-                                                        |          
+                                                        |
                                                          --2.74%--handle_pte_fault
-                                                                   |          
+                                                                   |
                                                                     --2.55%--do_anonymous_page
-                                                                              |          
+                                                                              |
                                                                                --1.27%--alloc_anon_folio
-                                                                                         |          
+                                                                                         |
                                                                                           --1.22%--vma_alloc_folio
-                                                                                                    |          
+                                                                                                    |
                                                                                                      --1.14%--alloc_pages_mpol
-                                                                                                               |          
+                                                                                                               |
                                                                                                                 --0.99%--__alloc_pages
-                                                                                                                          |          
+                                                                                                                          |
                                                                                                                            --0.83%--get_page_from_freelist
 
      3.64%     0.15%  a.out    [kernel.kallsyms]     [k] do_user_addr_fault
-            |          
+            |
              --3.49%--do_user_addr_fault
-                       |          
+                       |
                         --3.15%--handle_mm_fault
-                                  |          
+                                  |
                                    --2.92%--__handle_mm_fault
-                                             |          
+                                             |
                                               --2.74%--handle_pte_fault
-                                                        |          
+                                                        |
                                                          --2.55%--do_anonymous_page
-                                                                   |          
+                                                                   |
                                                                     --1.27%--alloc_anon_folio
-                                                                              |          
+                                                                              |
                                                                                --1.22%--vma_alloc_folio
-                                                                                         |          
+                                                                                         |
                                                                                           --1.14%--alloc_pages_mpol
-                                                                                                    |          
+                                                                                                    |
                                                                                                      --0.99%--__alloc_pages
-                                                                                                               |          
+                                                                                                               |
                                                                                                                 --0.83%--get_page_from_freelist
 
      3.16%     0.09%  a.out    [kernel.kallsyms]     [k] handle_mm_fault
-            |          
+            |
              --3.07%--handle_mm_fault
-                       |          
+                       |
                         --2.92%--__handle_mm_fault
-                                  |          
+                                  |
                                    --2.74%--handle_pte_fault
-                                             |          
+                                             |
                                               --2.55%--do_anonymous_page
-                                                        |          
+                                                        |
                                                          --1.27%--alloc_anon_folio
-                                                                   |          
+                                                                   |
                                                                     --1.22%--vma_alloc_folio
-                                                                              |          
+                                                                              |
                                                                                --1.14%--alloc_pages_mpol
-                                                                                         |          
+                                                                                         |
                                                                                           --0.99%--__alloc_pages
-                                                                                                    |          
+                                                                                                    |
                                                                                                      --0.83%--get_page_from_freelist
 
      2.92%     0.16%  a.out    [kernel.kallsyms]     [k] __handle_mm_fault
-            |          
+            |
              --2.76%--__handle_mm_fault
-                       |          
+                       |
                         --2.74%--handle_pte_fault
-                                  |          
+                                  |
                                    --2.55%--do_anonymous_page
-                                             |          
+                                             |
                                               --1.27%--alloc_anon_folio
-                                                        |          
+                                                        |
                                                          --1.22%--vma_alloc_folio
-                                                                   |          
+                                                                   |
                                                                     --1.14%--alloc_pages_mpol
-                                                                              |          
+                                                                              |
                                                                                --0.99%--__alloc_pages
-                                                                                         |          
+                                                                                         |
                                                                                           --0.83%--get_page_from_freelist
 
      2.74%     0.04%  a.out    [kernel.kallsyms]     [k] handle_pte_fault
-            |          
+            |
              --2.71%--handle_pte_fault
-                       |          
+                       |
                         --2.55%--do_anonymous_page
-                                  |          
+                                  |
                                    --1.27%--alloc_anon_folio
-                                             |          
+                                             |
                                               --1.22%--vma_alloc_folio
-                                                        |          
+                                                        |
                                                          --1.14%--alloc_pages_mpol
-                                                                   |          
+                                                                   |
                                                                     --0.99%--__alloc_pages
-                                                                              |          
+                                                                              |
                                                                                --0.83%--get_page_from_freelist
 
      2.55%     0.15%  a.out    [kernel.kallsyms]     [k] do_anonymous_page
-            |          
+            |
              --2.40%--do_anonymous_page
-                       |          
+                       |
                         --1.27%--alloc_anon_folio
-                                  |          
+                                  |
                                    --1.22%--vma_alloc_folio
-                                             |          
+                                             |
                                               --1.14%--alloc_pages_mpol
-                                                        |          
+                                                        |
                                                          --0.99%--__alloc_pages
-                                                                   |          
+                                                                   |
                                                                     --0.83%--get_page_from_freelist
 
      1.94%     1.22%  a.out    [kernel.kallsyms]     [k] asm_sysvec_apic_timer_interrupt
-            |          
+            |
             |--0.74%--0x5703aa7952c0
-            |          
+            |
              --0.72%--asm_sysvec_apic_timer_interrupt
-                       |          
+                       |
                         --0.70%--sysvec_apic_timer_interrupt
-                                  |          
+                                  |
                                    --0.64%--__sysvec_apic_timer_interrupt
-                                             |          
+                                             |
                                               --0.62%--hrtimer_interrupt
-                                                        |          
+                                                        |
                                                          --0.56%--__hrtimer_run_queues
 
      1.58%     1.54%  a.out    a.out                 [.] isblank@plt
@@ -831,70 +834,70 @@
             ---isblank@plt
 
      1.27%     0.02%  a.out    [kernel.kallsyms]     [k] alloc_anon_folio
-            |          
+            |
              --1.25%--alloc_anon_folio
-                       |          
+                       |
                         --1.22%--vma_alloc_folio
-                                  |          
+                                  |
                                    --1.14%--alloc_pages_mpol
-                                             |          
+                                             |
                                               --0.99%--__alloc_pages
-                                                        |          
+                                                        |
                                                          --0.83%--get_page_from_freelist
 
      1.23%     0.05%  a.out    [kernel.kallsyms]     [k] vma_alloc_folio
-            |          
+            |
              --1.18%--vma_alloc_folio
-                       |          
+                       |
                         --1.14%--alloc_pages_mpol
-                                  |          
+                                  |
                                    --0.99%--__alloc_pages
-                                             |          
+                                             |
                                               --0.83%--get_page_from_freelist
 
      1.16%     0.09%  a.out    [kernel.kallsyms]     [k] alloc_pages_mpol
-            |          
+            |
              --1.07%--alloc_pages_mpol
-                       |          
+                       |
                         --1.00%--__alloc_pages
-                                  |          
+                                  |
                                    --0.84%--get_page_from_freelist
 
      1.00%     0.14%  a.out    [kernel.kallsyms]     [k] __alloc_pages
-            |          
+            |
              --0.87%--__alloc_pages
-                       |          
+                       |
                         --0.84%--get_page_from_freelist
 
      0.84%     0.22%  a.out    [kernel.kallsyms]     [k] get_page_from_freelist
-            |          
+            |
              --0.62%--get_page_from_freelist
 
      0.77%     0.00%  a.out    [kernel.kallsyms]     [k] do_vmi_munmap
             |
             ---do_vmi_munmap
                do_vmi_align_munmap
-               |          
+               |
                 --0.77%--unmap_region
-                          |          
+                          |
                            --0.76%--unmap_vmas
                                      unmap_single_vma
                                      unmap_page_range
                                      zap_pmd_range.isra.0
-                                     |          
+                                     |
                                       --0.74%--zap_pte_range
 
      0.77%     0.00%  a.out    [kernel.kallsyms]     [k] do_vmi_align_munmap
             |
             ---do_vmi_align_munmap
-               |          
+               |
                 --0.77%--unmap_region
-                          |          
+                          |
                            --0.76%--unmap_vmas
                                      unmap_single_vma
                                      unmap_page_range
                                      zap_pmd_range.isra.0
-                                     |          
+                                     |
                                       --0.74%--zap_pte_range
 
      0.77%     0.00%  a.out    a.out                 [.] main
@@ -909,12 +912,12 @@
                do_vmi_munmap
                do_vmi_align_munmap
                unmap_region
-               |          
+               |
                 --0.76%--unmap_vmas
                           unmap_single_vma
                           unmap_page_range
                           zap_pmd_range.isra.0
-                          |          
+                          |
                            --0.74%--zap_pte_range
 
      0.77%     0.00%  a.out    libc.so.6             [.] __munmap
@@ -928,12 +931,12 @@
                do_vmi_munmap
                do_vmi_align_munmap
                unmap_region
-               |          
+               |
                 --0.76%--unmap_vmas
                           unmap_single_vma
                           unmap_page_range
                           zap_pmd_range.isra.0
-                          |          
+                          |
                            --0.74%--zap_pte_range
 
      0.77%     0.00%  a.out    [kernel.kallsyms]     [k] __x64_sys_munmap
@@ -943,12 +946,12 @@
                do_vmi_munmap
                do_vmi_align_munmap
                unmap_region
-               |          
+               |
                 --0.76%--unmap_vmas
                           unmap_single_vma
                           unmap_page_range
                           zap_pmd_range.isra.0
-                          |          
+                          |
                            --0.74%--zap_pte_range
 
      0.77%     0.00%  a.out    [kernel.kallsyms]     [k] __vm_munmap
@@ -957,23 +960,23 @@
                do_vmi_munmap
                do_vmi_align_munmap
                unmap_region
-               |          
+               |
                 --0.76%--unmap_vmas
                           unmap_single_vma
                           unmap_page_range
                           zap_pmd_range.isra.0
-                          |          
+                          |
                            --0.74%--zap_pte_range
 
      0.77%     0.00%  a.out    [kernel.kallsyms]     [k] unmap_region
             |
             ---unmap_region
-               |          
+               |
                 --0.76%--unmap_vmas
                           unmap_single_vma
                           unmap_page_range
                           zap_pmd_range.isra.0
-                          |          
+                          |
                            --0.74%--zap_pte_range
 
      0.76%     0.00%  a.out    [kernel.kallsyms]     [k] unmap_vmas
@@ -982,7 +985,7 @@
                unmap_single_vma
                unmap_page_range
                zap_pmd_range.isra.0
-               |          
+               |
                 --0.74%--zap_pte_range
 
      0.76%     0.00%  a.out    [kernel.kallsyms]     [k] unmap_single_vma
@@ -990,52 +993,52 @@
             ---unmap_single_vma
                unmap_page_range
                zap_pmd_range.isra.0
-               |          
+               |
                 --0.74%--zap_pte_range
 
      0.76%     0.00%  a.out    [kernel.kallsyms]     [k] unmap_page_range
             |
             ---unmap_page_range
                zap_pmd_range.isra.0
-               |          
+               |
                 --0.74%--zap_pte_range
 
      0.76%     0.00%  a.out    [kernel.kallsyms]     [k] zap_pmd_range.isra.0
             |
             ---zap_pmd_range.isra.0
-               |          
+               |
                 --0.74%--zap_pte_range
 
      0.74%     0.07%  a.out    [kernel.kallsyms]     [k] zap_pte_range
-            |          
+            |
              --0.67%--zap_pte_range
 
      0.70%     0.02%  a.out    [kernel.kallsyms]     [k] sysvec_apic_timer_interrupt
-            |          
+            |
              --0.68%--sysvec_apic_timer_interrupt
-                       |          
+                       |
                         --0.64%--__sysvec_apic_timer_interrupt
-                                  |          
+                                  |
                                    --0.62%--hrtimer_interrupt
-                                             |          
+                                             |
                                               --0.56%--__hrtimer_run_queues
 
      0.64%     0.01%  a.out    [kernel.kallsyms]     [k] __sysvec_apic_timer_interrupt
-            |          
+            |
              --0.63%--__sysvec_apic_timer_interrupt
-                       |          
+                       |
                         --0.62%--hrtimer_interrupt
-                                  |          
+                                  |
                                    --0.56%--__hrtimer_run_queues
 
      0.62%     0.00%  a.out    [kernel.kallsyms]     [k] hrtimer_interrupt
-            |          
+            |
              --0.62%--hrtimer_interrupt
-                       |          
+                       |
                         --0.56%--__hrtimer_run_queues
 
      0.56%     0.02%  a.out    [kernel.kallsyms]     [k] __hrtimer_run_queues
-            |          
+            |
              --0.55%--__hrtimer_run_queues
 
      0.50%     0.01%  a.out    [kernel.kallsyms]     [k] tick_nohz_highres_handler
@@ -1457,8 +1460,3 @@
      0.00%     0.00%  perf-ex  [kernel.kallsyms]     [k] ctx_resched
      0.00%     0.00%  perf-ex  [kernel.kallsyms]     [k] perf_ctx_enable
      0.00%     0.00%  perf-ex  [kernel.kallsyms]     [k] x86_pmu_enable
-
-
-#
-# (Cannot load tips.txt file, please install perf!)
-#

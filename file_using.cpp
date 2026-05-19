@@ -7,7 +7,7 @@ bool check_file_opening(const char *input_address, FILE** file_ptr, const char* 
 {
     if ((*file_ptr = fopen(input_address, access_rights)) == NULL)
     {
-        fprintf(stderr, "Can't open file\" %s\"\n", input_address);
+        fprintf(stderr, "Can't open file\"%s\"\n", input_address);
         return 1;
     }
 
