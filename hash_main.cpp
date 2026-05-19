@@ -23,7 +23,7 @@ int main(int argc, char* argv[])
     unsigned long int finding_buffer_len = 0;
     hash_table_t* hash_table = NULL;
 
-    if (hash_table_init(&hash_table, hash6, HASH_LIST_SIZE))
+    if (hash_table_init(&hash_table, hash6_optimised, HASH_LIST_SIZE))
         return HASH_TABLE_MAKING_ERROR;
 
     if (check_file_founded(argc, NUMBER_OF_FILES))
@@ -176,7 +176,7 @@ errors find_word(hash_table_t* hash_table, word_t* word)
     for (unsigned int i = 0; i < (hash_table->list_array[word_hash]).real_list_len; i++)
     {
         if (word->word_len == (hash_table->list_array[word_hash]).list_array[list_number].data->word_len)
-            if (strcmp(word->word, (hash_table->list_array[word_hash]).list_array[list_number].data->word) == 0)
+            if (strcmp_asm(word->word, (hash_table->list_array[word_hash]).list_array[list_number].data->word) == 0)
                 return NO_ERRORS;
         list_number = (hash_table->list_array[word_hash]).list_array[list_number].next;
     }

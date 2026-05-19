@@ -63,7 +63,7 @@ errors hash_table_add(hash_table_t* hash_table, word_t* word, FILE* html_dump_ad
 
     for (unsigned int i = 0; i < (hash_table->list_array[word_hash]).real_list_len; i++)
     {
-        if (strcmp(word->word, (hash_table->list_array[word_hash]).list_array[list_number].data->word) == 0)
+        if (strcmp_asm(word->word, (hash_table->list_array[word_hash]).list_array[list_number].data->word) == 0)
         {
             free(word);
             return NO_ERRORS;
